@@ -1,18 +1,9 @@
-import './globals.css';
+import '../theme/globals.css';
 
 import { FC, ReactNode } from 'react';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import { Provider } from '@/theme/provider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,8 +14,10 @@ const RootLayout: FC<{
   children: ReactNode;
 }> = ({ children }) => (
   <html lang="en">
-    <body className={`${geistSans.variable} ${geistMono.variable}`}>
-      {children}
+    <body>
+      <Provider>
+        <main>{children}</main>
+      </Provider>
     </body>
   </html>
 );

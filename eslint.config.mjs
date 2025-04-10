@@ -117,7 +117,16 @@ const customConfig = {
     ],
     'padding-line-between-statements': [
       'error',
-      { blankLine: 'always', prev: '*', next: 'export' },
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'export',
+      },
+      {
+        blankLine: 'any',
+        prev: 'export',
+        next: 'export',
+      },
     ],
     // Unicorn rules
     'unicorn/filename-case': ['error', { case: 'kebabCase' }],
